@@ -1,6 +1,3 @@
-
--------------------------------
-
 Name: Akshay Khadse
 
 Course: M. Tech
@@ -14,5 +11,3 @@ Year: 2016
 Research/study interests:
 
 Computational Electromagnetics, Finite time LQR for low cost hardware
-
---------------------------------
