@@ -1,14 +1,13 @@
-me: Aditi Taneja
+Name: Student T
 
-Course: Engineering
+Course: MBBS
 
-Department: Mechanical
+Department: Medical Sciences
 
-Roll number: 13d100026
+Roll number: M1234
 
-Year: 2013
+Year: 2020
 
 Research/study interests:
 
-Heat Tranfer, Fluid Dynamics
-
+Brain surgery, heart disease, foot in mouth disease.
