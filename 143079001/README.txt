@@ -1,13 +1,15 @@
-Name: Madhurai
+Name: Tushar Kataria
 
-Course: Masters in Comedy Writing
+Course: Communication Engineering
 
-Department: Comedy Central
+Department: Electrical Engineering
 
-Roll number: Joke1234
+Roll number: 143079001
 
-Year: 3456
+Year: 2016
 
 Research/study interests:
 
-how to be famous, Comedic Shows, Comedic script writing.
+Image Processing, Signal Processing, Machine Learning
+
+
