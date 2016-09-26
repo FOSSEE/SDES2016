@@ -4,4 +4,4 @@ Department: Aerospace Engineering
 Roll Number: 130010058
 Year: 2016
 Research/Study interests:
-Computational Fluid Dynamics, Electromagnetics of Aerospace Vehicles, Shape Optimization
+Computational Fluid Dynamics, Electromagnetics of Aerospace Vehicles, Shape Optimization.
