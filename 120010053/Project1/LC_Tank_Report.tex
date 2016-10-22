@@ -1,0 +1,165 @@
+% Report on a LC tank with resistance
+\documentclass[12pt, twosides]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Preamble
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\parskip}{2mm}
+
+%% Special fonts
+\DeclareFontFamily{T1}{pzc}{}
+\DeclareFontShape{T1}{pzc}{m}{it}{<-> [1.2] pzcmi8t}{}
+\DeclareMathAlphabet{\mathpzc}{T1}{pzc}{m}{it}
+
+\usepackage{amsmath, amsthm, amssymb}
+\allowdisplaybreaks
+\usepackage[usenames, dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumitem}
+\setlist[enumerate, 1]{topsep=-0.5ex}
+\setlist[itemize, 1]{topsep=-0.5ex}
+
+\usepackage[colorlinks=true,
+		raiselinks=true,
+		linkcolor=Sepia,%Mahogany,Brown
+		citecolor=MidnightBlue,%Blue
+		urlcolor=ForestGreen,
+		pdfauthor={Pradyumna Paruchuri},
+		pdftitle={LC Tank with Resistance}
+		pdfkeywords={},
+		pdfsubject={},
+		plainpages=false]{hyperref}
+
+\usepackage{mathtools}
+\mathtoolsset{mathic=true}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{dsfont}
+\usepackage[textwidth=1in, textsize=small]{todonotes}
+\usepackage{params}
+% The following two lines allows the use the usual mathcal with mathdesign
+\DeclareSymbolFont{usualmathcal}{OMS}{cmsy}{m}{n}
+\DeclareSymbolFontAlphabet{\mathcal}{usualmathcal}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Symbol Definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\rollno}{120010053}
+\newcommand{\voltage}{\ensuremath{V}}
+\newcommand{\curr}{I}
+\newcommand{\res}{R}
+\newcommand{\capc}{C}
+\newcommand{\ind}{L}
+\newcommand{\react}{X}
+\newcommand{\der}[1]{
+\ifnum#1=1
+	\frac{d}{dt}
+\else
+	\frac{d^#1}{dt^#1}
+\fi
+}
+
+
+%% Title
+\title{LC Tank with Resistance}
+\date{\today}
+\author{Pradyumna Paruchuri, 120010053}
+%Name: Pradyumna Paruchuri, Roll No. 120010053
+
+\begin{document}
+	\maketitle
+	
+	\section{Introduction}
+		An \textbf{LC tank}, also called a \textbf{resonant circuit}, \textbf{tank circuit} or \textbf{tuned circuit}, is an electric circuit consisting of a \textit{inductor (L)}, and a \textit{capacitor (C)} \cite{Wikipedia}. The energy in the circuit is shuffled at a certain frequency alternately between the capacitor and the inductor in the form of alternating voltage and current, 90 degrees out of phase.\footnote{\label{source} The source code for this report is present at GooMoonRyong branch in the git repo \url{https://github.com/PradyumnaParuchuri/SDES2016.git} }
+
+		When a \textit{resistor (R)} is connected to an LC tank in series or in parallel, it becomes an \textbf{RLC circuit}. The circuit forms a harmonic oscillator for current, and resonates in a similar way as an LC tank. Introducing the resistor increases the decay of these oscillations, which is also known as damping. The resistor also reduces the peak resonant frequency.
+		RLC circuits have many applications as oscillator circuits. Radio receivers and television sets use them for tuning to select a narrow frequency range from ambient radio waves. An RLC circuit can be used as a band-pass filter, band-stop filter, low-pass filter or high-pass filter. The tuning application is an example of band-pass filtering. The RLC filter is described as a second-order circuit, meaning that voltage or current in the circuit can be described by a second-order differential equation in circuit analysis.
+
+	\section{Series RLC Circuit}
+
+		The three circuit elements, R, L and C, can be combined in a number of different topologies. All three elements in series or all three elements in parallel are the simplest in concept and the most straightforward to analyse.
+
+		In a series RLC circuit, the three components are all in series with the voltage source. The governing differential equation can be found by substituting into Kirchoff's voltage law (KVL), the constitutive equation for each of the three elements.\\
+		From the KVL,
+		\[ \voltage_{R} + \voltage_{L} + \voltage_{C} = \voltage(t),\]
+		where, \(\voltage_R, \voltage_L\) and \(\voltage_C\) are the voltages across \(\res, \ind \text{ and } \capc\) respectively and \(\voltage(t)\) is the time varying voltage from the source. Substituting in the constitutive equations,
+		\begin{equation}
+		\label{e:series RLC}
+			\res \curr(t) + \ind \der{1} \curr + \frac{1}{\capc} \int_{-\infty}^{t} I(\tau)\, d\tau = \voltage(t)
+		\end{equation}
+		
+		\noindent
+		For the case where the source is an unchanging voltage, differentiating and dividing by L leads to the second order differential equation:
+		\[ \der{2} \curr(t) + \frac{\res}{\ind} \der{1} \curr(t) + \frac{1}{\ind}{\capc} \curr(t) = 0 \]
+		
+		\noindent
+		This can usefully be expressed in a more generally applicable form:
+		\[ \der{2} \curr(t) + 2 \alpha \der{1} \curr(t) + \omega_0^2 \curr(t) = 0 \]
+		where, \( \alpha = \frac{\res}{2 \ind} \text{ and } \omega_0 = \frac{1}{\sqrt{\ind \capc}} \)
+
+		The ratio of \(\alpha\) and \(\omega_0\)  gives the damping factor for the RLC circuit, which determines the type of transient that the circuit  will exhibit.\\
+		\(\xi \ = \ \frac{\alpha}{\omega_0} \ = \ \frac{R}{2} \sqrt{\frac{\capc}{\ind}} \)
+		
+		\subsection{Transient Response}
+			The differential equation for the circuit solves in three different ways depending on the value of \(\xi\).
+			These are underdamped (\(\xi < 1\)), overdamped (\(\xi > 1\)) and critically damped (\(\xi = 1\)). The differential equation has the characteristic equation,
+			\[ s^2 + 2 \alpha s + \omega_0^2 =0, \]
+			the roots of which are,
+			\[ s_1 = - \alpha + \sqrt{\alpha^2 - \omega_0^2} \text{ and}\]
+			\[ s_2 = - \alpha - \sqrt{\alpha^2 - \omega_0^2 }\]
+			
+			The general solution of the differential equatoin is a superposition of exponential in either root.
+			\[ \curr(t) = A_1 e^{s_1 t} + A_2 e^{s_2 t} \]
+			where the coefficients are determined by boundary conditions: values of the currents and voltages in circuit at the onset of the transient.
+			
+			\noindent
+			The figure \ref{fig:transients} shows the various responses of an RLC circuit in which the resistance is varied such that the damping factor gradually increases from 0.4 to 3.\footnote{The figures in the report are generated by python-2.7+, with matplotlib and numpy.}
+			\begin{figure}[H]
+			\centering
+				\includegraphics[width = 10cm]{"./Transients"}
+			\caption{\rollno: Plot showing underdamped and overdamped responses of an RLC circuit}
+			\label{fig:transients}
+			\end{figure}
+			
+			
+			
+		\subsection{Resonance}	
+			Now consider a series RLC circuit with the following parameters \cite{AllAbtCirc}.
+			\begin{center}
+			\begin{tabular}{|l|c|}
+				\hline
+				Parameter & Value\\ \hline
+				Resistance & \serRes\\
+				Inductance & \serInd\\
+				Capacitance & \serCap\\
+				Source Voltage & \serSource\\ \hline
+			\end{tabular}
+			\end{center}
+		
+			The amplitude of source current is calculated by using relation between voltage and impedance, given by the following relations \cite{ElecTut}.
+			\begin{itemize}[label=\textbullet, leftmargin=*]
+				\item Inductive reactance: \( \react_\ind \ = \ 2 \pi f \ind \ = \omega \ind \)
+				\item Capacitive reactance: \( \react_\capc \ = \frac{1}{\ 2 \pi f \capc} \ = \frac{1}{\omega \capc} \)
+				\item Total reactance: \( \react_\ind \ - \react_\capc\)
+				\item Total impedance: \( Z = \sqrt{\res^2 + (\react_\ind \ - \react_\capc)^2} \)
+
+			\end{itemize}			
+			and finally,
+			\[ \curr_s \ = \frac{\voltage}{Z},\]
+	
+
+			The response of the circuit in terms of the current amplitude, to variation in the source frequency can be seen in the fig:\ref{fig:series variation}.
+	
+			\begin{figure}[H]
+			\centering
+				\includegraphics[width = 10cm]{"./SeriesVariation"}
+			\caption{\rollno: Current v/s Source Frequency}
+			\label{fig:series variation}
+			\end{figure}	
+
+			The peak is seen at \peakSer \  which is the closest analyzed point to the predicted resonance point of \resonSer
+
+	\bibliography{references}
+	\bibliographystyle{ieeetr}	
+\end{document}
