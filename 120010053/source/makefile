@@ -1,5 +1,6 @@
 FILES := 120010053.pdf
 TEXFILES := $(FILES:.pdf=.tex)
+PYFILES := $(FILES:.pdf=.py)
 AUXFILES := $(TEXFILES:.tex=.aux)
 LOGFILES := $(FILES:.pdf=.log)
 OUTFILES := $(FILES:.pdf=.out)
@@ -19,8 +20,8 @@ all: $(FILES)
 	$(OUTFILES) $(BBL) $(BLG) *.sty
 
 		
-%.png %.sty: LC_Tank.py
-	python3 LC_Tank.py
+%.png %.sty: $(PYFILES)
+	python3 $(PYFILES)
 		
 #%.sty: LC_Tank.py
 #		python3 LC_Tank.py
