@@ -58,6 +58,58 @@ def step_response(R,L,C,V):
 
 	return fun
 
+def voltage_variation(R,L,C,V):
+	w = 1/np.sqrt(L*C)
+	xi = R*w/(2*L)
+	curr = step_response(R,L,C,V)
+
+	volt_res = lambda t: R*curr(t)
+	volt_ind = lambda t, dt=1e-6 : L*(curr(t+dt) - curr(t-dt))/(2*dt)
+	volt_cap = lambda t: V - volt_res(t) - volt_ind(t)
+
+	title = "120010053: Evolution of voltage in components in step response"
+	labels = ["Time $(s)$", "Voltage $(V)$"]
+	time = np.linspace(0, 50, 500, endpoint=True)
+	xlim = (0, 50)
+	colors = "bgrcmyk"
+	j = 0
+	plt.figure(figsize=(10,7), dpi=77)
+	ax = plt.subplot(111)
+
+	res_v = [ volt_res(t) for t in time]
+	ind_v = [ volt_ind(t) for t in time]
+	cap_v = [ volt_cap(t) for t in time]
+	current = [ 1000*curr(t) for t in time]
+
+	ylim = (min(res_v + ind_v + cap_v), max(res_v + ind_v + cap_v))
+	lims = (xlim, ylim)
+	
+	colors = "bgrcymk"
+	leg_entry = [ "Voltage across resistor $V_R$ ", \
+	              "Voltage across inductor $V_I$ ", \
+	              "Voltage across capacitor $V_C$ ", \
+	              "Current in the circuit $I(t)$" ]
+	plt.plot(time, res_v, colors[0], linewidth='1.5', label=leg_entry[0])
+	plt.plot(time, ind_v, colors[1], linewidth='1.5', label=leg_entry[1])
+	plt.plot(time, cap_v, colors[2], linewidth='1.5', label=leg_entry[2])
+
+	voltage_plot = plot_styling(ax, title, labels, lims)
+	plt.legend(loc='upper right', frameon=False)
+	plt.savefig("./Voltage_Variation.png", dpi=77)
+
+	plt.figure(figsize=(10,7), dpi=77)
+	ax = plt.subplot(111)
+	plt.plot(time, current, colors[3], linewidth='2.0', label=leg_entry[3])
+
+	title = "120010053: Current in the circuit"
+	ylim = (min(current), max(current))
+	lims = (xlim, ylim)
+	current_plot = plot_styling(ax, title, labels, lims)
+	plt.legend(loc='upper right', frameon=False)
+	plt.savefig("./Current_Variation.png", dpi=77)
+
+	#plt.show()
+
 def transient_response_plot(L,C,xi_set,V):
 	w = 1/np.sqrt(L*C)
 	R_set = []
@@ -65,7 +117,7 @@ def transient_response_plot(L,C,xi_set,V):
 		R_set.append(2*w*i*L)
 	
 	title = "120010053: Transient Response of LC tank for unit voltage"
-	labels = ['Time $(t)$', 'Current $I(t)$ mA']
+	labels = ['Time $(t)$', 'Current $I(t)$ (in mA)']
 	
 	time = np.linspace(0, 20, 500, endpoint=True)
 	xlim = (0, 20)
@@ -76,21 +128,6 @@ def transient_response_plot(L,C,xi_set,V):
 	plt.figure(figsize=(10,7), dpi=77)
 	ax = plt.subplot(111)
 	
-	#for i in xi:
-	#	if(i < 1):
-	#		wd = np.sqrt(1-i**2)
-	#		#fun1 = lambda t: np.exp(-i*t)*np.cos(wd*t)
-	#		#fun = lambda t: (1 + wd**2)*np.sqrt(2)*np.exp(-i*t)*np.sin(wd*t)/(2 - i)
-	#		fun = lambda t: 1/wd*np.exp(-i*t)*np.sin(wd*t)
-	#	elif(i == 1):
-	#		fun1 = lambda t: np.exp(-i*t)
-	#		fun = lambda t: t*fun1(t)
-	#	else:
-	#		s1 = -i + np.sqrt(i**2 -1)
-	#		s2 = -i - np.sqrt(i**2 -1)
-	#		coef =  s1*s2/(s1 - s2)
-	#		fun = lambda t: coef*(np.exp(s1*t) - np.exp(s2*t))
-
 	for i in xi_set:
 		r = 2*L*w*i
 		unit_step_resp = step_response(r,L,C,V)
@@ -169,27 +206,40 @@ def LC_tank_plot(R, L, C, V):
 
 	
 def main():
-	ser_source = 1
-	ser_res = 1
-	ser_cap = 10*10**-6
-	ser_ind = 100*10**-3
-	resonance_ser = 1/(2*np.pi*np.sqrt(ser_cap*ser_ind))
+	source = 1
+	res = 1
+	cap = 10*10**-6
+	ind = 100*10**-3
+	resonance = 1/(2*np.pi*np.sqrt(cap*ind))
 	
-	peak_ser =LC_tank_plot(ser_res, ser_ind, ser_cap, ser_source)
+	peak =LC_tank_plot(res, ind, cap, source)
 	
 	
 	with open('params.sty', 'w') as src:
-		src.write("\\newcommand{\\serSource}{$%.2f \\ $V}\n" %ser_source)
-		src.write("\\newcommand{\\serRes}{$%.2f \\ \Omega $}\n" %ser_res)
-		src.write("\\newcommand{\\serCap}{$%.2f \\ \mu F$}\n" %(ser_cap/10**-6))
-		src.write("\\newcommand{\\serInd}{$%.2f \\ $mH}\n" %(ser_ind/10**-3))
-		src.write("\\newcommand{\\resonSer}{$%.3f \\ $Hz}\n" %resonance_ser)
-		src.write("\\newcommand{\\peakSer}{$%.3f \\ $Hz}\n" %peak_ser)
+		src.write("\\newcommand{\\serSource}{$%.2f \\ $V}\n" %source)
+		src.write("\\newcommand{\\serRes}{$%.2f \\ \Omega $}\n" %res)
+		src.write("\\newcommand{\\serCap}{$%.2f \\ \mu F$}\n" %(cap/10**-6))
+		src.write("\\newcommand{\\serInd}{$%.2f \\ $mH}\n" %(ind/10**-3))
+		src.write("\\newcommand{\\resonSer}{$%.3f \\ $Hz}\n" %resonance)
+		src.write("\\newcommand{\\peakSer}{$%.3f \\ $Hz}\n" %peak)
 
 	
 	xi = [0.4, 0.6, 0.8, 1, 1.5, 2, 3]	# Various xi for transient response 
 	transient_response_plot(1,1,xi,1)
 
+	st_res = 2
+	st_ind = 3
+	st_cap = 1
+	st_src = 2
+
+	voltage_variation(st_res, st_ind, st_cap, st_src)
+
+	with open('params.sty', 'a') as src:
+		src.write("\\newcommand{\\Source}{$%.2f \\ $V}\n" %st_src)
+		src.write("\\newcommand{\\Res}{$%.2f \\ \Omega $}\n" %st_res)
+		src.write("\\newcommand{\\Capc}{$%.2f \\ F$}\n" %st_cap)
+		src.write("\\newcommand{\\Ind}{$%.2f \\ $H}\n" %st_ind)
+
+
 if __name__ == '__main__':
 	main()
-	
