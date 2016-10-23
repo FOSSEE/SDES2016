@@ -40,16 +40,33 @@ def plot_styling(plot_var, title, labels, lims, x_var='None'):
 	
 	return plot_var
 
-def transient_response_plot():
-	L = 1
-	C = 1
-	w = 1
-	xi = [0.4, 0.6, 0.8, 1, 2, 3]
+def step_response(R,L,C,V):
+	w = 1/np.sqrt(L*C)
+	xi = R*w/(2*L)
+	if (xi < 1):
+		wd = w*np.sqrt(1-xi**2)
+		fun = lambda t: V/wd*np.exp(-xi*w*t)*np.sin(wd*t)
+
+	elif(xi == 1):
+		fun = lambda t: V*t*np.exp(-w*t)/(L*w)
+
+	else:
+		s1 = -w*(xi + np.sqrt(xi**2 -1))
+		s2 = -w*(xi - np.sqrt(xi**2 -1))
+		coef = V*(s1*s2)/(s1 - s2)
+		fun = lambda t: coef*(np.exp(s1*t) - np.exp(s2*t))
+
+	return fun
+
+def transient_response_plot(L,C,xi_set,V):
+	w = 1/np.sqrt(L*C)
+	R_set = []
+	for i in xi_set:
+		R_set.append(2*w*i*L)
 	
 	title = "120010053: Transient Response of LC tank for unit voltage"
 	labels = ['Time $(t)$', 'Current $I(t)$ mA']
 	
-	fun = lambda t: t
 	time = np.linspace(0, 20, 500, endpoint=True)
 	xlim = (0, 20)
 	ylim = (-300, 600)
@@ -59,31 +76,35 @@ def transient_response_plot():
 	plt.figure(figsize=(10,7), dpi=77)
 	ax = plt.subplot(111)
 	
-	for i in xi:
-		 if(i < 1):
-		 	wd = np.sqrt(1-i**2)
-		 	#fun1 = lambda t: np.exp(-i*t)*np.cos(wd*t)
-		 	#fun = lambda t: (1 + wd**2)*np.sqrt(2)*np.exp(-i*t)*np.sin(wd*t)/(2 - i)
-		 	fun = lambda t: 1/wd*np.exp(-i*t)*np.sin(wd*t)
-		 elif(i == 1):
-		 	fun1 = lambda t: np.exp(-i*t)
-		 	fun = lambda t: t*fun1(t)
-		 else:
-		 	s1 = -i + np.sqrt(i**2 -1)
-		 	s2 = -i - np.sqrt(i**2 -1)
-		 	coef =  s1*s2/(s1 - s2)
-		 	fun = lambda t: coef*(np.exp(s1*t) - np.exp(s2*t))
+	#for i in xi:
+	#	if(i < 1):
+	#		wd = np.sqrt(1-i**2)
+	#		#fun1 = lambda t: np.exp(-i*t)*np.cos(wd*t)
+	#		#fun = lambda t: (1 + wd**2)*np.sqrt(2)*np.exp(-i*t)*np.sin(wd*t)/(2 - i)
+	#		fun = lambda t: 1/wd*np.exp(-i*t)*np.sin(wd*t)
+	#	elif(i == 1):
+	#		fun1 = lambda t: np.exp(-i*t)
+	#		fun = lambda t: t*fun1(t)
+	#	else:
+	#		s1 = -i + np.sqrt(i**2 -1)
+	#		s2 = -i - np.sqrt(i**2 -1)
+	#		coef =  s1*s2/(s1 - s2)
+	#		fun = lambda t: coef*(np.exp(s1*t) - np.exp(s2*t))
 
-		 leg_entry = r'$ \xi = %s $' %i
-		 curr = []
-		 for t in time:
-		 	curr.append(1000*fun(t))
-		 
-		 lw = '1.0'
-		 if i == 1:
-		 	lw = '3.0'
-		 plt.plot(time, curr, colors[j], linewidth=lw, label=leg_entry)
-		 j += 1
+	for i in xi_set:
+		r = 2*L*w*i
+		unit_step_resp = step_response(r,L,C,V)
+
+		leg_entry = r'$ \xi = %s $' %i
+		curr = []
+		for t in time:
+			curr.append(1000*unit_step_resp(t))
+		
+		lw = '1.0'
+		if i == 1:
+			lw = '3.0'
+		plt.plot(time, curr, colors[j], linewidth=lw, label=leg_entry)
+		j += 1
 	
 	transient_plot = plot_styling(ax, title, labels, lims)
 	plt.legend(loc='upper right', frameon=False)
@@ -103,13 +124,10 @@ def series_LC_tank(R,L,C,V,f):
 	return curr
 	
 	
-def LC_tank_plot(R, L, C, V, circuit = "series"):
+def LC_tank_plot(R, L, C, V):
 	"""
 		Plot variation of source current in an LC tank with resistance
 		with source frequency for fixed voltage
-		Optional arguments:
-			circuit indicates the type of circuit connection.
-			For now, circuit can be either series or parallel
 	"""
 	freq = np.linspace(200, 0, 399, endpoint=False)
 	
@@ -146,7 +164,7 @@ def LC_tank_plot(R, L, C, V, circuit = "series"):
 
 	
 	plt.savefig(plotsave, dpi=77)
-	return t
+	return t 	# Indicates the resonating frequency as per the plot.
 	#plt.show()
 
 	
@@ -168,7 +186,9 @@ def main():
 		src.write("\\newcommand{\\resonSer}{$%.3f \\ $Hz}\n" %resonance_ser)
 		src.write("\\newcommand{\\peakSer}{$%.3f \\ $Hz}\n" %peak_ser)
 
-	transient_response_plot()	
+	
+	xi = [0.4, 0.6, 0.8, 1, 1.5, 2, 3]	# The parameters for transient response 
+	transient_response_plot(1,1,xi,1)
 
 if __name__ == '__main__':
 	main()
