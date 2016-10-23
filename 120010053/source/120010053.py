@@ -187,7 +187,7 @@ def main():
 		src.write("\\newcommand{\\peakSer}{$%.3f \\ $Hz}\n" %peak_ser)
 
 	
-	xi = [0.4, 0.6, 0.8, 1, 1.5, 2, 3]	# The parameters for transient response 
+	xi = [0.4, 0.6, 0.8, 1, 1.5, 2, 3]	# Various xi for transient response 
 	transient_response_plot(1,1,xi,1)
 
 if __name__ == '__main__':
