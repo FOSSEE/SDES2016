@@ -1,13 +1,13 @@
-Name: Student T
+Name: M Harish
 
-Course: MBBS
+Course: B.Tech
 
-Department: Medical Sciences
+Department: Aerospace Engineering
 
-Roll number: M1234
+Roll number: 140010046
 
-Year: 2020
+Year: Third
 
 Research/study interests:
 
-Brain surgery, heart disease, foot in mouth disease.
+Turbulence, Linear analysis, CFD
