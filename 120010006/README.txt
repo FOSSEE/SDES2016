@@ -1,13 +1,13 @@
-Name: Student T
+Name: Kunal Tyagi
 
-Course: MBBS
+Course: SDES, AE-663 credit
 
-Department: Medical Sciences
+Department: Aerospace Engineering
 
-Roll number: M1234
+Roll number: 120010006
 
-Year: 2020
+Year: 2017
 
 Research/study interests:
 
-Brain surgery, heart disease, foot in mouth disease.
+Robotics
