@@ -1,13 +1,13 @@
-Name: Student T
+Name: Dinesh A
 
-Course: MBBS
+Course: M.Tech
 
-Department: Medical Sciences
+Department: Aerospace Engineering
 
-Roll number: M1234
+Roll number: 153010009
 
-Year: 2020
+Year: 2016
 
 Research/study interests:
 
-Brain surgery, heart disease, foot in mouth disease.
+SPH coupled with DEM
