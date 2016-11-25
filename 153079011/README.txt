@@ -1,13 +1,13 @@
-Name: Student T
+Name: Akshay Khadse
 
-Course: MBBS
+Course: M. Tech
 
-Department: Medical Sciences
+Department: Electrical Engineering
 
-Roll number: M1234
+Roll number: 153079011
 
-Year: 2020
+Year: 2016
 
 Research/study interests:
 
-Brain surgery, heart disease, foot in mouth disease.
+Computational Electromagnetics, Finite time LQR for low cost hardware
