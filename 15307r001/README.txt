@@ -1,13 +1,8 @@
-Name: Student T
-
-Course: MBBS
-
-Department: Medical Sciences
-
-Roll number: M1234
-
-Year: 2020
-
+Name: Soumya Dutta
+Course: M.Tech
+Department: Electrical Engineering
+Roll number: 15307r001
+Year: 2018
 Research/study interests:
+Control and Computing.
 
-Brain surgery, heart disease, foot in mouth disease.
