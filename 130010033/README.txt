@@ -1,13 +1,15 @@
-Name: Student T
+-------------------------------
 
-Course: MBBS
+Name: Srinivas Vaidyanathan
 
-Department: Medical Sciences
+Course: SDES
 
-Roll number: M1234
+Department: Aerospace Engg.
 
-Year: 2020
+Roll number: 130010033
 
-Research/study interests:
+Year: 2016
 
-Brain surgery, heart disease, foot in mouth disease.
+Research/study interests:NAN
+
+--------------------------------
