@@ -1,13 +1,14 @@
-Name: Student T
+Name: AVEEK PODDER
 
-Course: MBBS
+Course: SDES
 
-Department: Medical Sciences
+Department: ELECTRICAL ENGINEERING
 
-Roll number: M1234
+Roll number: 153070032
 
-Year: 2020
+Year: 2017
 
 Research/study interests:
 
-Brain surgery, heart disease, foot in mouth disease.
+MACHINE LEARNING
+
