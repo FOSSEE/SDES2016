@@ -1,13 +1,7 @@
-Name: Student T
-
-Course: MBBS
-
-Department: Medical Sciences
-
-Roll number: M1234
-
-Year: 2020
-
+Name: Raghav Gupta
+Course: Mtech.
+Department: Electrical Engineering
+Roll Number: 153079005
+Year: 2016
 Research/study interests:
-
-Brain surgery, heart disease, foot in mouth disease.
+Digital Signal Processing
