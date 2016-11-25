@@ -1,13 +1,14 @@
-Name: Student T
 
-Course: MBBS
+Name: Varun Warrier
 
-Department: Medical Sciences
+Course: M Tech
 
-Roll number: M1234
+Department: Electrical Engineering
 
-Year: 2020
+Roll number: 153079031
+
+Year: 2016
 
 Research/study interests:
 
-Brain surgery, heart disease, foot in mouth disease.
+Embedded Systems, Digital Signal Processing, Analog Circuits
