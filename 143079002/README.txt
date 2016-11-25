@@ -1,13 +1,14 @@
-Name: Student T
+Name: Nikunj Patel
 
-Course: MBBS
+Course: SDES
 
-Department: Medical Sciences
+Department: Electrical Engineering
 
-Roll number: M1234
+Roll number: 143079002
 
-Year: 2020
+Year: 2016
 
 Research/study interests:
 
-Brain surgery, heart disease, foot in mouth disease.
+Machine Learning, Computer Vision, Image and Signal Processing.
+
