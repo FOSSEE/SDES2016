@@ -1,13 +1,11 @@
-Name: Student T
+Name: Ninad Bhat
 
-Course: MBBS
+Course: Dual Degree
 
-Department: Medical Sciences
+Department: Metallurgical Engineering and Materials Science
 
-Roll number: M1234
+Roll number: 14d110006
 
-Year: 2020
+Year: 2019
 
-Research/study interests:
-
-Brain surgery, heart disease, foot in mouth disease.
+Research/study interests: E-Learning, Software development
