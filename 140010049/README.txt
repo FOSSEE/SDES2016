@@ -1,13 +1,13 @@
-Name: Student T
+Name: Surya Mohan Reddy K
 
-Course: MBBS
+Course: B.Tech
 
-Department: Medical Sciences
+Department: Aerospace Engineering
 
-Roll number: M1234
+Roll number: 140010049
 
-Year: 2020
+Year: 2016
 
 Research/study interests:
+High Performance Computing , Theoritical Physics and Astrophotography
 
-Brain surgery, heart disease, foot in mouth disease.
