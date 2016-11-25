@@ -1,13 +1,6 @@
-Name: Student T
-
-Course: MBBS
-
-Department: Medical Sciences
-
-Roll number: M1234
-
-Year: 2020
-
-Research/study interests:
-
-Brain surgery, heart disease, foot in mouth disease.
+Name: Siddharth Swarnkar
+Course: B.Tech
+Department: Aerospace
+Roll number: 130010038
+Year: 2017
+Research interests: ML, Statistics
