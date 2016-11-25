@@ -1,13 +1,15 @@
-Name: Student T
+Name: Tushar Kataria
 
-Course: MBBS
+Course: Communication Engineering
 
-Department: Medical Sciences
+Department: Electrical Engineering
 
-Roll number: M1234
+Roll number: 143079001
 
-Year: 2020
+Year: 2016
 
 Research/study interests:
 
-Brain surgery, heart disease, foot in mouth disease.
+Image Processing, Signal Processing, Machine Learning
+
+
