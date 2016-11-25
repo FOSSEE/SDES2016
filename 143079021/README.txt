@@ -1,13 +1,7 @@
-Name: Student T
-
-Course: MBBS
-
-Department: Medical Sciences
-
-Roll number: M1234
-
-Year: 2020
-
+Name: Ashwith Jerome Rego
+Course: Software Development Techniques for Engineering and Science
+Department: Aeronautical Engineering
+Roll number: 143079021
+Year: 2016
 Research/study interests:
-
-Brain surgery, heart disease, foot in mouth disease.
+Analog IC Design, RF Integrated Circuits and Systems, Signal Processing
