@@ -1,13 +1,7 @@
-Name: Student T
-
-Course: MBBS
-
-Department: Medical Sciences
-
-Roll number: M1234
-
-Year: 2020
-
+Name: M Suriya Kumar
+Course: B. Tech.
+Department: Mechanical Engineering
+Roll number: 130010024
+Year: 2017
 Research/study interests:
-
-Brain surgery, heart disease, foot in mouth disease.
+Computational Fluid Dynamics, Robotics, Machine Learning, Quantative Finance.
