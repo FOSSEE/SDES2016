@@ -1,13 +1,11 @@
-Name: Student T
+Name: Anant T Pawar
 
-Course: MBBS
+Course: M.Tech
 
-Department: Medical Sciences
+Department: EE
 
-Roll number: M1234
+Roll number: 153079012	
 
-Year: 2020
+Year: 2015			
 
-Research/study interests:
-
-Brain surgery, heart disease, foot in mouth disease.
+Research/study interests: Control 
