@@ -1,13 +1,13 @@
-Name: Student T
+Name: Gaurav Bangad	
 
-Course: MBBS
+Course: M.Tech
 
-Department: Medical Sciences
+Department: Electrical Engineering
 
-Roll number: M1234
+Roll number: 14307r006
 
-Year: 2020
+Year: 2014
 
 Research/study interests:
 
-Brain surgery, heart disease, foot in mouth disease.
+Metamaterials and Antennas
