@@ -1,13 +1,13 @@
-Name: Student T
+Name: Hitesh Tulsiani
 
-Course: MBBS
+Course: M. Tech
 
-Department: Medical Sciences
+Department: Electrical
 
-Roll number: M1234
+Roll number: 14307R032
 
-Year: 2020
+Year: 2016
 
 Research/study interests:
 
-Brain surgery, heart disease, foot in mouth disease.
+Speech Processing
