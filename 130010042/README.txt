@@ -1,13 +1,12 @@
-Name: Student T
+Name: Shobhit V
 
-Course: MBBS
+Course: B.Tech
 
-Department: Medical Sciences
+Department: Aerospace Engineering
 
-Roll number: M1234
+Roll number: 130010042
 
-Year: 2020
+Year: 2017
 
 Research/study interests:
-
-Brain surgery, heart disease, foot in mouth disease.
+Development on python, data analysis
