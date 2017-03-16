@@ -1,13 +1,14 @@
-Name: Student T
+Name: Krishna Kumar Kedia S
 
-Course: MBBS
+Course: B.Tech
 
-Department: Medical Sciences
+Department: Aerospace Department
 
-Roll number: M1234
+Roll number: 140010056
 
-Year: 2020
+Year: 2018
 
 Research/study interests:
 
-Brain surgery, heart disease, foot in mouth disease.
+Autoparallelization in Compilers
+
