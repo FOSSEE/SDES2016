@@ -1,13 +1,14 @@
-Name: Student T
+Name: Nithin M
 
-Course: MBBS
+Course: EE DD Communication and Signal Processing
 
-Department: Medical Sciences
+Department: EE
 
-Roll number: M1234
+Roll number: 13D070058
 
-Year: 2020
+Year: 2012
 
 Research/study interests:
 
-Brain surgery, heart disease, foot in mouth disease.
+Image Processing, Robotics, Meachine Learning
+
