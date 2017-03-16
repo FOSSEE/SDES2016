@@ -1,13 +1,7 @@
-Name: Student T
-
-Course: MBBS
-
-Department: Medical Sciences
-
-Roll number: M1234
-
-Year: 2020
-
+Name: Jyoti Dhakal
+Course: Communication
+Department: Engineering
+Roll number: 153072001
+Year: 2017
 Research/study interests:
-
-Brain surgery, heart disease, foot in mouth disease.
+MIMO
