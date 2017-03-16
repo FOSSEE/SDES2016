@@ -1,13 +1,13 @@
-Name: Student T
+Name: Saketh Sharma
 
-Course: MBBS
+Course: M.Tech
 
-Department: Medical Sciences
+Department: Electrical Engineering
 
-Roll number: M1234
+Roll number: 14307R030
 
-Year: 2020
+Year: 2016
 
 Research/study interests:
 
-Brain surgery, heart disease, foot in mouth disease.
+Speech and Audio Processing.
