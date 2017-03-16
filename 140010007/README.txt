@@ -1,13 +1,17 @@
-Name: Student T
+--------------------------------
 
-Course: MBBS
+Name: Raj Krishnan
 
-Department: Medical Sciences
+Course: B. Tech
 
-Roll number: M1234
+Department: Aerospace Engineering
 
-Year: 2020
+Roll number: 140010007
+
+Year: 2018
 
 Research/study interests:
 
-Brain surgery, heart disease, foot in mouth disease.
+Machine Learning, Compilers, Operating Systems
+
+--------------------------------
