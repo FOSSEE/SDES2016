@@ -1,13 +1,8 @@
-Name: Student T
-
-Course: MBBS
-
-Department: Medical Sciences
-
-Roll number: M1234
-
-Year: 2020
-
+Name: Siddharth Nair
+Course: B.Tech
+Department: Aerospace
+Roll number: 130010011
+Year: 2017
 Research/study interests:
+Nonlinear Control
 
-Brain surgery, heart disease, foot in mouth disease.
