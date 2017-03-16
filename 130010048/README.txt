@@ -1,13 +1,7 @@
-Name: Student T
-
-Course: MBBS
-
-Department: Medical Sciences
-
-Roll number: M1234
-
-Year: 2020
-
+Name: Vinod Kumar Metla
+Course: AE613-Credit
+Department: Aerospace
+Roll Number: 130010048
+Year: 2016
 Research/study interests:
-
-Brain surgery, heart disease, foot in mouth disease.
+  Structures; coding; puzzles
