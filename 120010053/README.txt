@@ -1,13 +1,7 @@
-Name: Student T
-
-Course: MBBS
-
-Department: Medical Sciences
-
-Roll number: M1234
-
-Year: 2020
-
+Name: Pradyumna Paruchuri
+Course: Dual Degree
+Department: Aerospace Engineering
+Roll number: 120010053
+Year: 2016
 Research/study interests:
-
-Brain surgery, heart disease, foot in mouth disease.
+Algorithm Design, Optimisation, Cryptography
